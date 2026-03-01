@@ -17,8 +17,16 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Headless Store",
+  title: {
+    default: "Headless Store",
+    template: "%s | Headless Store",
+  },
   description: "A headless Shopify store built with Next.js",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
