@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-cream: #FAF7F2;
+  --color-brand-ice: #E8F0F4;
+  --color-brand-slate: #2D3436;
+  --color-brand-accent: #6F9BB0;
+  --color-brand-muted: #8B9DA7;
+
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
