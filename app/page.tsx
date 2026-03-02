@@ -21,7 +21,7 @@ export default async function Home() {
   const products = data.products.edges.map(({ node }) => node);
 
   return (
-    <main>
+    <div>
       {/* Hero — scroll-controlled video */}
       <ScrollVideo src="/videos/hero.mp4" />
 
@@ -69,6 +69,6 @@ export default async function Home() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

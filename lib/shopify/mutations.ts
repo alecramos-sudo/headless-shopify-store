@@ -36,6 +36,12 @@ const CART_FRAGMENT = `
                 amount
                 currencyCode
               }
+              image {
+                url
+                altText
+                width
+                height
+              }
             }
           }
         }

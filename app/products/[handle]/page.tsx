@@ -37,13 +37,13 @@ export default async function ProductPage({ params }: Props) {
   const images = product.images.edges.map(({ node }) => node);
 
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12">
+    <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <ProductGallery images={images} />
         <ProductInfo product={product} />
       </div>
 
       <StickyBuyBar product={product} />
-    </main>
+    </div>
   );
 }

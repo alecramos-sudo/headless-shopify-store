@@ -1,5 +1,5 @@
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
-const token = process.env.SHOPIFY_STOREFRONT_API_TOKEN!;
+const token = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN!;
 const apiVersion = "2025-01";
 
 export async function shopifyFetch<T>({

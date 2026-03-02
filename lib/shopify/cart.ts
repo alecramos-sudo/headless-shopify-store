@@ -10,6 +10,12 @@ import type { Cart } from "./types";
 
 type CartResponse<K extends string> = Record<K, { cart: Cart; userErrors: Array<{ field: string; message: string }> }>;
 
+function checkUserErrors(userErrors: Array<{ field: string; message: string }>) {
+  if (userErrors.length > 0) {
+    throw new Error(userErrors.map((e) => e.message).join(", "));
+  }
+}
+
 export async function createCart(variantId: string, quantity: number): Promise<Cart> {
   const data = await shopifyFetch<CartResponse<"cartCreate">>({
     query: CREATE_CART_MUTATION,
@@ -19,6 +25,7 @@ export async function createCart(variantId: string, quantity: number): Promise<C
       },
     },
   });
+  checkUserErrors(data.cartCreate.userErrors);
   return data.cartCreate.cart;
 }
 
@@ -30,6 +37,7 @@ export async function addToCart(cartId: string, variantId: string, quantity: num
       lines: [{ merchandiseId: variantId, quantity }],
     },
   });
+  checkUserErrors(data.cartLinesAdd.userErrors);
   return data.cartLinesAdd.cart;
 }
 
@@ -41,6 +49,7 @@ export async function updateCartItem(cartId: string, lineId: string, quantity: n
       lines: [{ id: lineId, quantity }],
     },
   });
+  checkUserErrors(data.cartLinesUpdate.userErrors);
   return data.cartLinesUpdate.cart;
 }
 
@@ -49,6 +58,7 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
     query: REMOVE_FROM_CART_MUTATION,
     variables: { cartId, lineIds },
   });
+  checkUserErrors(data.cartLinesRemove.userErrors);
   return data.cartLinesRemove.cart;
 }
 

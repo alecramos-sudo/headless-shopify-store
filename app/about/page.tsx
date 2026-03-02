@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-3xl mx-auto px-6 py-24">
+    <div className="max-w-3xl mx-auto px-6 py-24">
       <h1 className="font-display text-4xl mb-8">About</h1>
       <div className="space-y-4 text-lg text-brand-muted leading-relaxed">
         <p>
@@ -19,6 +19,6 @@ export default function AboutPage() {
           Next.js, inspired by moumoujus.com.
         </p>
       </div>
-    </main>
+    </div>
   );
 }
